@@ -1,12 +1,26 @@
 "use client";
+import { signIn } from "@/lib/auth-client";
 import { Button, Description, FieldError, Form, Input, Label, TextField } from "@heroui/react";
 
 const SignInPage = () => {
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
     console.log("Info data", data);
+
+    const email = formData.get("email") as string;
+    const password = formData.get("password") as string;
+
+    //connect with better Auth:
+    const { data: resData, error } = await signIn.email({
+      email,
+      password,
+      rememberMe: true,
+      callbackURL: "/",
+    });
+
+    console.log(resData, error);
   };
   return (
     <div>
