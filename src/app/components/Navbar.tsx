@@ -30,9 +30,14 @@ export default function Navbar() {
         </Link>
       </li>
       {session?.user && (
-        <li>
-          <Link href="/pricing">Pricing</Link>
-        </li>
+        <>
+          <li>
+            <Link href="/profile">Profile</Link>
+          </li>
+          <li>
+            <Link href="/settings">Settings</Link>
+          </li>
+        </>
       )}
     </>
   );
@@ -77,7 +82,9 @@ export default function Navbar() {
           </button>
           <div className="flex items-center gap-3">
             {/* <Logo /> */}
-            <p className="font-bold">ACME</p>
+            <Link href="/" className="font-bold">
+              ACME
+            </Link>
           </div>
         </div>
         <ul className="hidden items-center gap-4 md:flex">{links}</ul>
