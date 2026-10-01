@@ -5,6 +5,7 @@ import { Button, Description, FieldError, Form, Input, Label, TextField } from "
 import { Eye, EyeSlash } from "@gravity-ui/icons";
 import { InputGroup } from "@heroui/react";
 import { useState } from "react";
+import Link from "next/link";
 
 const SignInPage = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -115,6 +116,14 @@ const SignInPage = () => {
           </Button>
         </div>
       </Form>
+      <p className="my-5">
+        <small>
+          Forgot Password?
+          <Link href="/forgot-password" className="text-blue-600 underline ml-1">
+             Click Here
+          </Link>
+        </small>
+      </p>
     </div>
   );
 };
