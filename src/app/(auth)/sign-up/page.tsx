@@ -22,11 +22,20 @@ const SignUpPage = () => {
     console.log(resData, error);
   };
 
+  //google handler:
   const handleGoogleSignIn = async () => {
     const resData = await signIn.social({
       provider: "google",
     });
     console.log("After google sign In", resData);
+  };
+
+  //github handler:
+  const handelGithubSignUp = async () => {
+    const resGithubData = await signIn.social({
+      provider: "github",
+    });
+    console.log("github signIn", resGithubData);
   };
 
   return (
@@ -103,6 +112,9 @@ const SignUpPage = () => {
 
       {/* google */}
       <Button onClick={handleGoogleSignIn}>Sign Up with Google</Button>
+
+      {/* GITHUB */}
+      <Button onClick={handelGithubSignUp}>Sign Up with Github</Button>
     </div>
   );
 };
