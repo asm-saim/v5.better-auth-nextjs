@@ -6,14 +6,9 @@ const ForgotPasswordPage = () => {
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    const data: Record<string, string> = {};
+    const userData = Object.fromEntries(formData.entries());
 
-    // Convert FormData to plain object
-    formData.forEach((value, key) => {
-      data[key] = value.toString();
-    });
-
-    alert(`Form submitted with: ${JSON.stringify(data, null, 2)}`);
+    console.log("info from the forget field", userData);
   };
 
   return (
