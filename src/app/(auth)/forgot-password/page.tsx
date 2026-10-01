@@ -1,14 +1,22 @@
 "use client";
+import { requestPasswordReset } from "@/lib/auth-client";
 import { Check } from "@gravity-ui/icons";
-import { Button, Description, FieldError, Form, Input, Label, TextField } from "@heroui/react";
+import { Button, Description, FieldError, Form, Input, Label, TextField, toast } from "@heroui/react";
 
 const ForgotPasswordPage = () => {
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const userData = Object.fromEntries(formData.entries());
-
     console.log("info from the forget field", userData);
+
+    const resData = await requestPasswordReset({
+      email: userData.email as string,
+      redirectTo: "/reset-password",
+    });
+
+    toast.success("Email is sent. Please check your inbox");
+    console.log("Send email for reset", resData);
   };
 
   return (
