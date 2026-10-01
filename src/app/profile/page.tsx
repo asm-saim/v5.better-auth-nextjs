@@ -13,6 +13,7 @@ import {
   Label,
   TextArea,
   TextField,
+  toast,
 } from "@heroui/react";
 
 export default function Basic() {
@@ -29,6 +30,11 @@ export default function Basic() {
     });
 
     console.log("Info after update", resData);
+
+    //toast
+    toast.success("Profile updated successfully!", {
+      description: "Your profile information has been updated.",
+    });
   };
 
   return (
