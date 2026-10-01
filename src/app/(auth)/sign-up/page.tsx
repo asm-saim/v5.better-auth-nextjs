@@ -35,7 +35,15 @@ const SignUpPage = () => {
     const resGithubData = await signIn.social({
       provider: "github",
     });
-    console.log("github signIn", resGithubData);
+    console.log("github signUp", resGithubData);
+  };
+
+  //discord handler:
+  const handleDiscordSignUp = async () => {
+    const resDiscordData = await signIn.social({
+      provider: "discord",
+    });
+    console.log("Discord SignUp", resDiscordData);
   };
 
   return (
@@ -115,6 +123,9 @@ const SignUpPage = () => {
 
       {/* GITHUB */}
       <Button onClick={handelGithubSignUp}>Sign Up with Github</Button>
+
+      {/* DISCORD */}
+      <Button onClick={handleDiscordSignUp}>Sign Up with Discord</Button>
     </div>
   );
 };

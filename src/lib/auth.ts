@@ -21,6 +21,10 @@ export const auth = betterAuth({
       clientId: process.env.BETTER_AUTH_GITHUB_CLIENT_ID as string,
       clientSecret: process.env.BETTER_AUTH_GITHUB_CLIENT_SECRET as string,
     },
+    discord: {
+      clientId: process.env.BETTER_AUTH_DISCORD_CLIENT_ID as string,
+      clientSecret: process.env.BETTER_AUTH_DISCORD_CLIENT_SECRET as string,
+    },
   },
   database: mongodbAdapter(db, {
     // Optional: if you don't provide a client, database transactions won't be enabled.
