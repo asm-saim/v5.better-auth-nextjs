@@ -20,9 +20,14 @@ export const auth = betterAuth({
         from: "Acme <onboarding@resend.dev>",
         to: user.email,
         subject: "Reset your password",
-        html: `Click <a href="${url}">here</a> to reset your password.`,
+        html: `
+        <h1>Please Verify Your Email</h1>
+        Click <a href="${url}">here</a> to reset your password.`,
       });
     },
+    sendOnSignUp: true,
+    autoSignInAfterVerification: true,
+    expiresIn: 3600, // 1 hour
   },
   //FOR GOOGLE:
   socialProviders: {

@@ -19,7 +19,7 @@ const SignUpPage = () => {
       email,
       password,
     });
-    console.log(resData, error);
+    console.log("after sign up", resData, error);
   };
 
   //google handler:
